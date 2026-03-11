@@ -1,0 +1,93 @@
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast), transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+.item:hover {
+  border-color: var(--color-border-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Checkbox */
+.checkbox {
+  flex-shrink: 0;
+  width: 22px; height: 22px;
+  border-radius: 6px;
+  border: 2px solid var(--color-border-hover);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-fast), border-color var(--transition-fast),
+    transform var(--transition-fast);
+  margin-top: 1px;
+}
+.checkbox:hover { border-color: var(--color-primary); transform: scale(1.1); }
+
+.checked {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  animation: pulse-ring 0.4s ease;
+}
+
+/* Content */
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.titleText {
+  display: block;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  transition: color var(--transition-fast);
+  word-break: break-word;
+}
+
+.done {
+  text-decoration: line-through;
+  color: var(--color-text-faint);
+}
+
+.desc {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+.item:hover .actions { opacity: 1; }
+
+.actionBtn {
+  width: 32px; height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-2);
+  color: var(--color-text-muted);
+  display: flex; align-items: center; justify-content: center;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+.actionBtn:hover {
+  background: var(--color-surface-3);
+  color: var(--color-text);
+}
+.danger:hover {
+  background: rgba(255, 85, 85, 0.15);
+  color: var(--color-danger);
+}
