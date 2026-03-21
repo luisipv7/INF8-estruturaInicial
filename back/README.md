@@ -1,4 +1,4 @@
-# Back-end — Flask API
+﻿# Back-end - FastAPI
 
 ## Requisitos
 - Python 3.11+
@@ -14,42 +14,31 @@ venv\Scripts\activate
 # macOS/Linux:
 source venv/bin/activate
 
-# 2. Instalar dependências
+# 2. Instalar dependencias
 pip install -r requirements.txt
 
-# 3. Configurar variáveis de ambiente
+# 3. Configurar variaveis de ambiente
 cp .env.example .env
-# Edite o .env com suas credenciais
 
 # 4. Subir o banco de dados
 cd ../db
 cp .env.example .env
 docker compose up -d
 
-# 5. Rodar o servidor Flask
+# 5. Rodar o servidor FastAPI
 cd ../back
-flask run
+uvicorn run:app --reload
 ```
 
 ## Estrutura de Pastas
 
-```
+```text
 back/
-├── app/
-│   ├── __init__.py      # Fábrica da aplicação Flask
-│   ├── models/          # Modelos SQLAlchemy (a implementar em aula)
-│   └── routes/          # Blueprints de rotas (a implementar em aula)
-├── .env.example
-├── requirements.txt
-└── run.py               # Entry point
+|-- app/
+|   |-- __init__.py      # Fabrica da aplicacao FastAPI
+|   |-- models/          # Modelos SQLAlchemy (a implementar em aula)
+|   `-- routes/          # Rotas/APIRouters (a implementar em aula)
+|-- .env.example
+|-- requirements.txt
+`-- run.py               # Entry point do servidor
 ```
-
-## Rotas planejadas (a implementar em aula)
-
-| Método | Rota            | Descrição               |
-|--------|-----------------|-------------------------|
-| GET    | /todos          | Listar todos os todos   |
-| POST   | /todos          | Criar novo todo         |
-| GET    | /todos/:id      | Buscar todo por ID      |
-| PUT    | /todos/:id      | Atualizar todo          |
-| DELETE | /todos/:id      | Deletar todo            |

@@ -1,1 +1,6 @@
-# Back-end placeholder — __init__.py will be implemented in class
+﻿from fastapi import FastAPI
+
+
+def create_app() -> FastAPI:
+    app = FastAPI(title="Todo API")
+    return app
