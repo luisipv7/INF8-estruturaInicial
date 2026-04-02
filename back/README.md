@@ -36,9 +36,21 @@ uvicorn run:app --reload
 back/
 |-- app/
 |   |-- __init__.py      # Fabrica da aplicacao FastAPI
-|   |-- models/          # Modelos SQLAlchemy (a implementar em aula)
-|   `-- routes/          # Rotas/APIRouters (a implementar em aula)
+|   |-- controllers/     # Orquestracao entre rotas e servicos
+|   |-- models/          # Modelos SQLAlchemy
+|   |-- repositories/    # Acesso a dados
+|   |-- routes/          # Rotas/APIRouters
+|   |-- schemas/         # Schemas Pydantic
+|   `-- services/        # Regras de negocio
 |-- .env.example
 |-- requirements.txt
 `-- run.py               # Entry point do servidor
 ```
+
+## Endpoints
+
+- `GET /todos`
+- `GET /todos/{id}`
+- `POST /todos`
+- `PUT /todos/{id}`
+- `DELETE /todos/{id}`
