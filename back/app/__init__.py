@@ -1,8 +1,11 @@
+import os
+from contextlib import asynccontextmanager
+
+from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.database import Base, engine
-from app.routes.task_routes import router as task_router
 
 # Carrega as variaveis do arquivo .env para dentro do ambiente da aplicacao.
 load_dotenv()
@@ -48,9 +51,6 @@ def create_app() -> FastAPI:
         # Libera todos os cabecalhos HTTP recebidos nas requisicoes.
         allow_headers=["*"],
     )
-
-    # Registra as rotas de task dentro da aplicacao principal.
-    app.include_router(task_router)
 
     # Retorna a aplicacao configurada para ser executada pelo servidor.
     return app
